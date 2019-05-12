@@ -4,13 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "parcel index.html"
+    "p": "parcel index.html"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "vue": "^2.6.10",
-    "vue-dropdown-advanced": "0.0.11"
+    "vue-dropdown-advanced": "^0.1.0"
   },
   "devDependencies": {
     "@mdi/font": "^3.6.95",

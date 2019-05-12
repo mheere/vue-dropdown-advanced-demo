@@ -1,54 +1,60 @@
 <template>
   <div id="app">
-    <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
-    <h1>
+    <h1 style='color: #652b2b'>
       Vue Dropdown Advanced test page
     </h1>
 
-    <hr />
+    <div class='button-block'>
 
-    <div class="row">
+      <div class="row">
 
-      <div class='button example-dr'>
-        Example Down Right
-        <drop-down-menu v-bind:itemsAsync="getAsyncItems" :onClick="this.onClick">  </drop-down-menu>
+        <div class='button example-dr'>
+          <span style="color:red">Async</span> Down Right
+          <drop-down-menu v-bind:itemsAsync="getAsyncItems" :click="this.onClick">  </drop-down-menu>
+        </div>
+
+        <div class='button example-dl' >
+          Down Left
+          <drop-down-menu v-bind:items="myitems_dl" :click="this.onClick" direction="down-left">  </drop-down-menu>
+        </div>
+
+        <div class='button example-dl' >
+          Showcase
+          <drop-down-menu v-bind:items="myitems_sc" :click="this.onClick" direction="down-left">  </drop-down-menu>
+        </div>
+
       </div>
 
-      <div class='button example-dl' style='display: absolute'>
-        Example Down Left
-        <drop-down-menu v-bind:items="myitems_dl" :onClick="this.onClick" direction="down-left">  </drop-down-menu>
+      <div class="row">
+
+        <div class='button example-ur'>
+          Up Right
+          <drop-down-menu v-bind:items="myitems_ur" :click="this.onClick" direction="up-right">  </drop-down-menu>
+        </div>
+
+        <div class='button example-ul'>
+          Up Left
+          <drop-down-menu v-bind:items="myitems_ul" :click="this.onClick" direction="up-left">  </drop-down-menu>
+        </div>
+
       </div>
 
     </div>
 
-    <div class="row">
+    
 
-      <div class='button example-ur'>
-        Example Up Right
-        <drop-down-menu v-bind:items="myitems_ur" :onClick="this.onClick" direction="up-right">  </drop-down-menu>
-      </div>
-
-      <div class='button example-ul'>
-        Example Up Left
-        <drop-down-menu v-bind:items="myitems_ul" :onClick="this.onClick" direction="up-left">  </drop-down-menu>
-      </div>
-
-    </div>
-   
     <div class='notification' v-bind:class="{ show: msg.length > 0 }">
       {{ msg }}
     </div>
+
   </div>
+
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
 import { DropDownMenu, DropDownInfo, DropDownItemBase, ActionItem, HeaderItem, DropDownDirection, 
   getTestItems, delay, createGuidRight5 } from 'vue-dropdown-advanced'
-
-import 'vue-dropdown-advanced/dist/vue-dropdown-advanced.css'
-
-import '@mdi/font/css/materialdesignicons.css';
 
 let xx = DropDownMenu;
 
@@ -62,12 +68,14 @@ export default Vue.extend({
     const myitems_dl : DropDownItemBase[] = [];
     const myitems_ur : DropDownItemBase[] = [];
     const myitems_ul : DropDownItemBase[] = [];
+    const myitems_sc : DropDownItemBase[] = [];
     const msg: string = "";
     return {
       myitems_dr,
       myitems_dl,
       myitems_ur,
       myitems_ul,
+      myitems_sc,
       msg
     }
   },
@@ -99,6 +107,7 @@ export default Vue.extend({
     this.myitems_dl = getTestItems("logout-simple");
     this.myitems_ur = getTestItems("options-simple");
     this.myitems_ul = getTestItems("options");
+    this.myitems_sc = getTestItems("showcase");
   }
 });
 
@@ -140,7 +149,7 @@ export default Vue.extend({
     border: 2px solid green;
     padding: 10px;
     background: #e1f3e1;
-    border-radius: 8px;
+    border-radius: 6px;
     opacity: 0;
     -webkit-transition: opacity 0.2s; /* Safari */
     transition: opacity 0.2s;
@@ -148,6 +157,13 @@ export default Vue.extend({
     &.show {
       opacity: 1;
     }
+}
+
+.button-block {
+  border: 1px solid #7e799c;
+  background: #f7f7f7;
+  margin: 30px 0 30px 0;
+  padding: 10px 0 40px 0;
 }
 
 </style>
