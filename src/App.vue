@@ -38,18 +38,17 @@
     <div class='notification' v-bind:class="{ show: msg.length > 0 }">
       {{ msg }}
     </div>
-    <!-- <Banner position='bottom' hello='marcel'>This is a banner - HELLO HELLO testing by marcel...</Banner> -->
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
 import { DropDownMenu, DropDownInfo, DropDownItemBase, ActionItem, HeaderItem, DropDownDirection, 
-  getTestItems, delay, createGuidRight5 } from "vue-dropdown-advanced"
+  getTestItems, delay, createGuidRight5 } from 'vue-dropdown-advanced'
+
+import 'vue-dropdown-advanced/dist/vue-dropdown-advanced.css'
 
 import '@mdi/font/css/materialdesignicons.css';
-
-//debugger;
 
 let xx = DropDownMenu;
 
