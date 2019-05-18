@@ -5,3 +5,5 @@
 ### work - git remote set-url origin https://github.com/mheere-iress/vue-dropdown-advanced-demo.git
     and not our origin is pointing at my forked project
 ### work - git remote -v       (proves this)
+### me at home on master adding stuff and want to commit straight to master...
+### after being merged
