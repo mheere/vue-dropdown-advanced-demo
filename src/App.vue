@@ -37,9 +37,17 @@
           <drop-down-menu v-bind:items="myitems_ul" :click="this.onClick" direction="up-left">  </drop-down-menu>
         </div>
 
+        <div class='button example-programmatically'>
+          Just a normal 'div'
+        </div>
+
       </div>
 
     </div>
+
+    <hr /> 
+        
+    <a>Click me to make this button a vue dropdown control!</a>
 
     
 
@@ -53,7 +61,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { DropDownMenu, DropDownInfo, DropDownItemBase, ActionItem, HeaderItem, DropDownDirection, 
+import { DropDownControl, DropDownMenu, DropDownInfo, DropDownItemBase, ActionItem, HeaderItem, DropDownDirection, 
   getTestItems, delay, createGuidRight5 } from 'vue-dropdown-advanced'
 
 let xx = DropDownMenu;
@@ -108,6 +116,22 @@ export default Vue.extend({
     this.myitems_ur = getTestItems("options-simple");
     this.myitems_ul = getTestItems("options");
     this.myitems_sc = getTestItems("showcase");
+  },
+  mounted() {
+    // setTimeout(() => {
+    //   // example-programmatically
+    //   let prog = document.getElementsByClassName("example-programmatically");
+      
+    //   let x = new DropDownControl(prog[0]);
+    //   x.items = getTestItems("showcase");
+    //   x.openOnCreate = true;
+    //   x.onClick = (info: DropDownInfo) => {
+    //     console.log("example-programmatically-openOnCreate: " + info.item.key)
+    //   }
+    //   x.minWidth = "240px"
+    //   x.maxHeight = "250px";
+    //   x.createMenu();  
+    // }, 2000);
   }
 });
 
