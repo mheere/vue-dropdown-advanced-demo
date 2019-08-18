@@ -41,6 +41,10 @@
           Just a normal 'div'
         </div>
 
+        <div class='button' id='make-dropdown'>
+          Convert left div to a DropDown button!
+        </div>
+
       </div>
 
     </div>
@@ -118,6 +122,25 @@ export default Vue.extend({
     this.myitems_sc = getTestItems("showcase");
   },
   mounted() {
+
+    let btnConvert = document.getElementById("make-dropdown");
+    
+    btnConvert.onclick = () => {
+      let prog = document.getElementsByClassName("example-programmatically");
+      
+      let x = new DropDownControl(prog[0]);
+      x.items = getTestItems("showcase");
+      x.openOnCreate = true;
+      x.onClick = (info: DropDownInfo) => {
+        console.log("example-programmatically-openOnCreate: " + info.item.key)
+      }
+      x.minWidth = "240px"
+      x.maxHeight = "250px";
+      //setTimeout(() => x.createMenu());   // TAKE NOTE - fix this please...
+      x.createMenu();     // first time doesn't auto popup... 
+    }
+
+
     // setTimeout(() => {
     //   // example-programmatically
     //   let prog = document.getElementsByClassName("example-programmatically");
